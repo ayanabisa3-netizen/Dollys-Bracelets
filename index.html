@@ -1,64 +1,193 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>𝑫𝒐𝒍𝒍𝒚𝒔 𝑩𝒓𝒂𝒄𝒆𝒍𝒆𝒕𝒔</title>
+<meta charset="UTF-8">
+<title>Dollys Bracelets</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+    body {
+        margin: 0;
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(180deg, #ffe6f2, #ffeefd, #e8f0ff);
+        color: #444;
+    }
+
+    header {
+        text-align: center;
+        padding: 40px 20px;
+        background: #fff;
+        border-bottom: 4px solid #ffd6ec;
+        box-shadow: 0 4px 10px rgba(255, 182, 222, 0.4);
+    }
+
+    header h1 {
+        font-size: 40px;
+        color: #ff8ac9;
+        font-weight: 700;
+        letter-spacing: 1px;
+    }
+
+    header p {
+        font-size: 18px;
+        color: #777;
+    }
+
+    .hero {
+        text-align: center;
+        padding: 50px 20px;
+    }
+
+    .hero h2 {
+        font-size: 32px;
+        color: #ff7fbc;
+        margin-bottom: 10px;
+    }
+
+    .hero p {
+        font-size: 18px;
+        color: #666;
+    }
+
+    .shop-btn {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 14px 28px;
+        background: #ffb3dd;
+        color: white;
+        border-radius: 30px;
+        font-size: 18px;
+        box-shadow: 0 0 15px #ffb3dd;
+        transition: 0.3s;
+        text-decoration: none;
+    }
+
+    .shop-btn:hover {
+        background: #ff8ac9;
+        box-shadow: 0 0 20px #ff8ac9;
+    }
+
+    .section-title {
+        text-align: center;
+        font-size: 28px;
+        margin-top: 60px;
+        color: #ff7fbc;
+        font-weight: 600;
+    }
+
+    .products {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 25px;
+        padding: 30px;
+        max-width: 1100px;
+        margin: auto;
+    }
+
+    .product-card {
+        background: white;
+        padding: 20px;
+        border-radius: 20px;
+        text-align: center;
+        box-shadow: 0 4px 12px rgba(255, 150, 200, 0.3);
+        transition: 0.3s;
+    }
+
+    .product-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 18px rgba(255, 150, 200, 0.4);
+    }
+
+    .product-card img {
+        width: 100%;
+        border-radius: 15px;
+        margin-bottom: 10px;
+    }
+
+    .product-card h3 {
+        font-size: 20px;
+        color: #ff7fbc;
+        margin-bottom: 5px;
+    }
+
+    .product-card p {
+        font-size: 16px;
+        color: #666;
+    }
+
+    .coming-soon {
+        text-align: center;
+        padding: 50px 20px;
+        margin-top: 40px;
+        background: #fff0fa;
+        border-top: 4px solid #ffc7e6;
+    }
+
+    .coming-soon h2 {
+        font-size: 28px;
+        color: #ff7fbc;
+    }
+
+    footer {
+        text-align: center;
+        padding: 20px;
+        margin-top: 40px;
+        background: #fff;
+        border-top: 4px solid #ffd6ec;
+        color: #777;
+    }
+</style>
 </head>
 
-<body style="margin:0; padding:0; font-family:Arial, sans-serif; background-color:#ffd6e7; color:#444444;">
+<body>
 
-    <!-- HEADER -->
-    <div style="background-color:#d6ecff; padding:25px; text-align:center; border-bottom:4px solid #e6d6ff;">
-        <h1 style="margin:0; font-size:40px;"𝑫𝒐𝒍𝒍𝒚𝒔 𝑩𝒓𝒂𝒄𝒆𝒍𝒆𝒕𝒔</h1>
-        <p style="margin:5px 0 0 0; font-size:18px;">Cute Pastel Website ✨</p>
+<header>
+    <h1>Dollys Bracelets</h1>
+    <p>Cute • Pastel • Handmade • Cutecore</p>
+</header>
+
+<section class="hero">
+    <h2>Cutecore Bracelet Collection</h2>
+    <p>Adorable pastel bracelets made to match your aesthetic.</p>
+    <a class="shop-btn">Shop Now</a>
+</section>
+
+<h2 class="section-title">Top Sellers</h2>
+
+<div class="products">
+    <div class="product-card">
+        <img src="https://i.imgur.com/8bKQF0L.jpeg" alt="Bracelet">
+        <h3>Pink Dream Bracelet</h3>
+        <p>$8.00</p>
     </div>
 
-    <!-- MAIN CONTENT -->
-    <div style="padding:20px; max-width:900px; margin:auto;">
-
-        <!-- ABOUT CARD -->
-        <div style="background-color:#ffe9d6; padding:20px; border-radius:15px; border:3px solid #d6ffe9; margin-bottom:25px;">
-            <h2 style="margin-top:0;">About Me</h2>
-            <p>Hi! I'm Dolly and I make bracelets and YouTube videos. Welcome to my website!</p>
-        </div>
-
-        <!-- YOUTUBE SECTION -->
-        <div style="background-color:#e6d6ff; padding:20px; border-radius:15px; border:3px solid #ffd6e7; margin-bottom:25px;">
-            <h2 style="margin-top:0;">My YouTube Videos</h2>
-
-            <div style="margin-bottom:20px;">
-                <iframe width="100%" height="315" src="https://www.youtube.com/embed/VIDEO_ID_1" 
-                style="border-radius:12px; border:3px solid #d6ffe9;"></iframe>
-            </div>
-
-            <div>
-                <iframe width="100%" height="315" src="https://www.youtube.com/embed/VIDEO_ID_2" 
-                style="border-radius:12px; border:3px solid #d6ffe9;"></iframe>
-            </div>
-        </div>
-
-        <!-- BRACELET SHOP -->
-        <div style="background-color:#d6ffe9; padding:20px; border-radius:15px; border:3px solid #e6d6ff;">
-            <h2 style="margin-top:0;">Bracelet Shop</h2>
-
-            <div style="background-color:#ffe9d6; padding:15px; border-radius:12px; margin-bottom:15px;">
-                <h3>Pink Heart Bracelet</h3>
-                <p>$5.00</p>
-                <button style="background-color:#e6d6ff; padding:10px 20px; border:none; border-radius:8px; font-weight:bold; cursor:pointer;">
-                    Buy Now
-                </button>
-            </div>
-
-            <div style="background-color:#ffe9d6; padding:15px; border-radius:12px;">
-                <h3>Blue Star Bracelet</h3>
-                <p>$6.00</p>
-                <button style="background-color:#e6d6ff; padding:10px 20px; border:none; border-radius:8px; font-weight:bold; cursor:pointer;">
-                    Buy Now
-                </button>
-            </div>
-
-        </div>
-
+    <div class="product-card">
+        <img src="https://i.imgur.com/2yJ7m0Z.jpeg" alt="Bracelet">
+        <h3>Pastel Star Beads</h3>
+        <p>$7.00</p>
     </div>
+
+    <div class="product-card">
+        <img src="https://i.imgur.com/3Q5xg1F.jpeg" alt="Bracelet">
+        <h3>Cutecore Charm Mix</h3>
+        <p>$10.00</p>
+    </div>
+
+    <div class="product-card">
+        <img src="https://i.imgur.com/4Z8tq0M.jpeg" alt="Bracelet">
+        <h3>Bubblegum Hearts</h3>
+        <p>$9.00</p>
+    </div>
+</div>
+
+<section class="coming-soon">
+    <h2>Videos Coming Soon!</h2>
+    <p>Your bracelet tutorials and showcases will appear here.</p>
+</section>
+
+<footer>
+    © 2026 Dollys Bracelets — All pastel, all cute.
+</footer>
 
 </body>
 </html>
