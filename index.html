@@ -2,242 +2,148 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<title>Dollys Bracelets ✿ Pastel Shop</title>
+<title>Dollys Bracelets ✿ Ayana's Pastel Page</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 <style>
-/* RESET */
-*{margin:0;padding:0;box-sizing:border-box;font-family:"Trebuchet MS",sans-serif;}
-
-/* BACKGROUND */
-body{
-  background:linear-gradient(135deg,#ffd6ec,#e3f0ff,#e8ffe9,#fff7d6,#ffe6f5);
-  background-size:400% 400%;
-  animation:rainbow 12s ease infinite;
-  text-align:center;
-  padding-bottom:50px;
-}
-@keyframes rainbow{
-  0%{background-position:0% 50%;}
-  50%{background-position:100% 50%;}
-  100%{background-position:0% 50%;}
+body {
+  background: #f7eaff; /* soft pastel purple */
+  font-family: "Trebuchet MS", sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #7a4fa3;
 }
 
-/* HEADER */
-header{
-  padding:40px 10px;
+/* HEADER IMAGE AREA */
+.header {
+  background: #fff;
+  padding: 20px;
+  text-align: center;
+  border-bottom: 3px solid #e3c8ff;
 }
-h1{
-  font-size:2.8rem;
-  color:#ff2f8a;
-  text-shadow:0 2px 0 #ffe6f5;
+.header h1 {
+  font-size: 2.4rem;
+  color: #b06adf;
+  margin-bottom: 5px;
 }
-.sub{
-  margin-top:5px;
-  color:#ff7abf;
-  font-size:1.1rem;
-}
-
-/* NAV */
-nav{
-  margin:20px auto;
-  display:flex;
-  justify-content:center;
-  gap:15px;
-}
-nav a{
-  text-decoration:none;
-  background:#ff7abf;
-  color:white;
-  padding:8px 18px;
-  border-radius:999px;
-  font-weight:bold;
-  font-size:0.9rem;
+.header p {
+  color: #a46cd1;
 }
 
-/* SECTION TITLES */
-.section-title{
-  margin:40px 0 15px;
-  font-size:1.8rem;
-  color:#ff2f8a;
+/* MAIN LAYOUT */
+.container {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 20px;
+  max-width: 1100px;
+  margin: 30px auto;
+  padding: 0 20px;
 }
 
-/* GRID SECTIONS */
-.grid{
-  max-width:1000px;
-  margin:0 auto;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  gap:18px;
-}
-.card{
-  background:white;
-  border-radius:20px;
-  padding:15px;
-  border:2px solid #ffd1f2;
-  box-shadow:0 5px 15px rgba(255,120,180,0.3);
-}
-.card h3{color:#ff2f8a;margin-bottom:5px;}
-.card p{color:#ff7abf;}
-
-/* ABOUT + CONTACT BOXES */
-.box{
-  max-width:800px;
-  margin:20px auto;
-  background:white;
-  border-radius:20px;
-  padding:20px;
-  border:2px solid #ffd1f2;
-  box-shadow:0 5px 15px rgba(255,120,180,0.3);
-  color:#ff2f8a;
+/* BOXES */
+.box {
+  background: #ffffff;
+  border: 2px solid #e3c8ff;
+  border-radius: 15px;
+  padding: 15px;
+  box-shadow: 0 3px 10px rgba(176, 106, 223, 0.15);
 }
 
-/* YOUTUBE BUTTON */
-.yt-btn{
-  display:inline-block;
-  margin-top:10px;
-  background:#ff6ba3;
-  color:white;
-  padding:10px 20px;
-  border-radius:999px;
-  font-weight:bold;
-  text-decoration:none;
+/* LEFT COLUMN */
+.left .pfp {
+  width: 100%;
+  border-radius: 15px;
+  margin-bottom: 10px;
+}
+.left h2 {
+  font-size: 1.3rem;
+  color: #b06adf;
+  margin-bottom: 10px;
 }
 
-/* SANRIO CHARACTERS */
-.character{
-  position:fixed;
-  z-index:5;
-  opacity:0.9;
+/* MIDDLE COLUMN */
+.middle h2 {
+  font-size: 1.5rem;
+  color: #b06adf;
+  margin-bottom: 10px;
 }
-.big{width:120px;}
-.small{width:70px;}
-
-/* FLOATING BOWS */
-.bow{
-  position:fixed;
-  width:40px;
-  height:24px;
-  border-radius:999px;
-  background:#ff6ba3;
-  opacity:0.7;
-  animation:float 8s ease-in-out infinite;
-}
-.bow::before,.bow::after{
-  content:"";
-  position:absolute;
-  width:24px;
-  height:24px;
-  border-radius:50%;
-  background:#ff8abf;
-  top:0;
-}
-.bow::before{left:-15px;}
-.bow::after{right:-15px;}
-@keyframes float{
-  0%{transform:translateY(0);}
-  50%{transform:translateY(-30px);}
-  100%{transform:translateY(0);}
+.middle p {
+  line-height: 1.5;
 }
 
-/* SPARKLE CURSOR */
-.spark{
-  position:fixed;
-  width:10px;
-  height:10px;
-  border-radius:50%;
-  background:radial-gradient(circle,#fff,#ffb7dd);
-  pointer-events:none;
-  opacity:0.9;
-  transform:translate(-50%,-50%);
-  animation:fade 0.6s linear forwards;
+/* RIGHT COLUMN NAV */
+.nav-btn {
+  display: block;
+  background: #d8b7ff;
+  color: white;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: bold;
+  text-align: center;
+  transition: 0.2s;
 }
-@keyframes fade{
-  to{opacity:0;transform:translate(-50%,-50%) scale(0.3);}
+.nav-btn:hover {
+  background: #c79aff;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  margin: 40px 0;
+  color: #a46cd1;
 }
 </style>
 </head>
 
 <body>
 
-<!-- SANRIO CHARACTERS -->
-<img src="https://pngimg.com/uploads/hello_kitty/hello_kitty_PNG64.png" class="character big" style="top:10px;left:10px;">
-<img src="https://pngimg.com/uploads/kuromi/kuromi_PNG19.png" class="character small" style="top:20px;right:20px;">
-<img src="https://pngimg.com/uploads/cinnamoroll/cinnamoroll_PNG17.png" class="character big" style="bottom:10px;left:20px;">
-<img src="https://pngimg.com/uploads/my_melody/my_melody_PNG35.png" class="character small" style="bottom:20px;right:20px;">
-
-<!-- FLOATING BOWS -->
-<div class="bow" style="top:30%;left:5%;animation-delay:0s;"></div>
-<div class="bow" style="top:70%;right:5%;animation-delay:2s;"></div>
-
-<header>
-  <h1>Dollys Bracelets ✿</h1>
-  <p class="sub">cute • pastel • handmade • sanrio‑coded</p>
-  <a class="yt-btn" href="https://www.youtube.com/@DollysBracelets_OFFICIAL" target="_blank">Visit My YouTube ♡</a>
-</header>
-
-<nav>
-  <a href="#bracelets">Bracelets</a>
-  <a href="#necklaces">Necklaces</a>
-  <a href="#earrings">Earrings</a>
-  <a href="#love">Love</a>
-  <a href="#about">About</a>
-  <a href="#contact">Contact</a>
-</nav>
-
-<!-- BRACELETS -->
-<h2 class="section-title" id="bracelets">Bracelets ✿</h2>
-<div class="grid">
-  <div class="card"><h3>Cotton Candy Clouds</h3><p>$8</p></div>
-  <div class="card"><h3>Kuromi Chaos</h3><p>$10</p></div>
-  <div class="card"><h3>Cinnamoroll Sky</h3><p>$9</p></div>
-  <div class="card"><h3>Pastel Galaxy</h3><p>$11</p></div>
+<div class="header">
+  <h1>Welcome to Ayana’s Pastel World ✿</h1>
+  <p>cute • soft • sanrio‑coded • handmade bracelets</p>
 </div>
 
-<!-- NECKLACES -->
-<h2 class="section-title" id="necklaces">Necklaces ✿</h2>
-<div class="grid">
-  <div class="card"><h3>Heart Locket</h3><p>$12</p></div>
-  <div class="card"><h3>Angelcore Wings</h3><p>$14</p></div>
+<div class="container">
+
+  <!-- LEFT COLUMN -->
+  <div class="box left">
+    <img src="https://pngimg.com/uploads/hello_kitty/hello_kitty_PNG64.png" class="pfp">
+    <h2>Ayana / Dolly</h2>
+    <p><b>Age:</b> —</p>
+    <p><b>Likes:</b> Sanrio, pastel colors, bracelets</p>
+    <p><b>Dislikes:</b> boring websites lol</p>
+  </div>
+
+  <!-- MIDDLE COLUMN -->
+  <div class="box middle">
+    <h2>About My Shop ✿</h2>
+    <p>
+      Hi! I'm Ayana and welcome to my pastel bracelet world.  
+      Everything here is cute, soft, and inspired by Sanrio characters.  
+      I make bracelets, charms, and accessories with love and sparkles.
+    </p>
+
+    <h2 style="margin-top:20px;">Top Picks ✿</h2>
+    <p>♡ Cotton Candy Clouds<br>
+       ♡ Kuromi Chaos<br>
+       ♡ Cinnamoroll Sky Beads</p>
+  </div>
+
+  <!-- RIGHT COLUMN -->
+  <div class="box right">
+    <h2 style="text-align:center;color:#b06adf;">Navigation ✿</h2>
+    <a class="nav-btn" href="index.html">Home</a>
+    <a class="nav-btn" href="shop.html">Shop Bracelets</a>
+    <a class="nav-btn" href="https://www.youtube.com/@DollysBracelets_OFFICIAL" target="_blank">YouTube</a>
+    <a class="nav-btn" href="#contact">Contact</a>
+  </div>
+
 </div>
 
-<!-- EARRINGS -->
-<h2 class="section-title" id="earrings">Earrings ✿</h2>
-<div class="grid">
-  <div class="card"><h3>Star Drops</h3><p>$7</p></div>
-  <div class="card"><h3>Pink Bows</h3><p>$8</p></div>
-</div>
-
-<!-- LOVE SECTION -->
-<h2 class="section-title" id="love">Love ✿</h2>
-<div class="grid">
-  <div class="card"><h3>Sweetheart Set</h3><p>$15</p></div>
-  <div class="card"><h3>Valentine Mix</h3><p>$13</p></div>
-</div>
-
-<!-- ABOUT -->
-<div class="box" id="about">
-  <h2>About Me ✿</h2>
-  <p>Hi! I'm Ayana and I make cute pastel bracelets inspired by Sanrio, clouds, hearts, and everything soft and magical.</p>
-</div>
-
-<!-- CONTACT -->
-<div class="box" id="contact">
-  <h2>Contact ✿</h2>
-  <p>Email, Instagram, TikTok — add your info here when you're ready to take real orders!</p>
-</div>
-
-<script>
-/* SPARKLE CURSOR */
-document.addEventListener("mousemove", (e)=>{
-  const s=document.createElement("div");
-  s.className="spark";
-  s.style.left=e.clientX+"px";
-  s.style.top=e.clientY+"px";
-  document.body.appendChild(s);
-  setTimeout(()=>s.remove(),600);
-});
-</script>
+<footer>
+  © 2026 Ayana’s Pastel Shop — made with ♡
+</footer>
 
 </body>
 </html>
