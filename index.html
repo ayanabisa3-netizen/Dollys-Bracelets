@@ -1,426 +1,249 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Dollys Bracelets ✿ Hello Kitty Pastel Shop</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "Trebuchet MS", system-ui, sans-serif;
-    }
+<meta charset="UTF-8" />
+<title>Dollys Bracelets ✿ Pastel Hello Kitty Shop</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    body {
-      min-height: 100vh;
-      color: #ff6ba3;
-      background: linear-gradient(135deg, #ffc6e9 0%, #ffe6f5 40%, #ffd6f0 70%, #ffeefe 100%);
-      position: relative;
-      overflow-x: hidden;
-    }
+<style>
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Trebuchet MS", system-ui, sans-serif;
+}
 
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      background-image:
-        radial-gradient(circle at 10% 20%, rgba(255,255,255,0.7) 0, transparent 40%),
-        radial-gradient(circle at 80% 10%, rgba(255,255,255,0.6) 0, transparent 45%),
-        radial-gradient(circle at 20% 80%, rgba(255,255,255,0.5) 0, transparent 45%),
-        radial-gradient(circle at 90% 70%, rgba(255,255,255,0.4) 0, transparent 50%);
-      opacity: 0.7;
-      z-index: -1;
-    }
+/* BACKGROUND + CURSOR */
+body {
+  background: linear-gradient(135deg, #ffd6ec, #ffeaf6, #fff5fb);
+  min-height: 100vh;
+  overflow-x: hidden;
+  cursor: url('https://cur.cursors-4u.net/cursors/cur-11/cur1050.cur'), auto;
+  color: #ff6ba3;
+}
 
-    .page-wrap {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 24px 16px 40px;
-    }
+/* FLOATING SPARKLES */
+.sparkle {
+  position: fixed;
+  width: 12px;
+  height: 12px;
+  background: radial-gradient(circle, #fff 0%, #ffb7dd 60%, transparent 100%);
+  border-radius: 50%;
+  animation: float 6s infinite ease-in-out;
+  pointer-events: none;
+  opacity: 0.8;
+}
+@keyframes float {
+  0% { transform: translateY(0) scale(1); opacity: 0.8; }
+  50% { transform: translateY(-40px) scale(1.3); opacity: 1; }
+  100% { transform: translateY(0) scale(1); opacity: 0.8; }
+}
 
-    header {
-      background: linear-gradient(135deg, #ffb7dd, #ffd1f2);
-      border-radius: 24px;
-      padding: 18px 20px;
-      box-shadow: 0 10px 25px rgba(255, 120, 180, 0.35);
-      position: relative;
-      overflow: hidden;
-    }
+/* NAVBAR */
+nav {
+  background: #ffb7dd;
+  padding: 12px 20px;
+  border-radius: 20px;
+  margin: 20px auto;
+  max-width: 900px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  box-shadow: 0 8px 20px rgba(255, 120, 180, 0.4);
+}
+nav a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 700;
+  background: #ff7abf;
+  padding: 8px 16px;
+  border-radius: 999px;
+  transition: 0.2s;
+}
+nav a:hover {
+  background: #ff4f9c;
+  transform: scale(1.05);
+}
 
-    header::before,
-    header::after {
-      content: "♡ 🎀 ♡";
-      position: absolute;
-      font-size: 42px;
-      color: rgba(255, 255, 255, 0.7);
-      pointer-events: none;
-    }
+/* HEADER */
+header {
+  max-width: 900px;
+  margin: 0 auto;
+  background: linear-gradient(135deg, #ffb7dd, #ffd1f2);
+  padding: 20px;
+  border-radius: 24px;
+  box-shadow: 0 10px 25px rgba(255, 120, 180, 0.35);
+  text-align: center;
+}
+header h1 {
+  color: #ff2f8a;
+  font-size: 2rem;
+  text-shadow: 0 2px 0 #ffe6f5;
+}
+header p {
+  color: #fff7fb;
+  margin-top: 6px;
+}
 
-    header::before {
-      top: -10px;
-      left: 16px;
-    }
+/* PRODUCT GRID */
+.products-grid {
+  max-width: 900px;
+  margin: 30px auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 18px;
+}
+.product-card {
+  background: radial-gradient(circle at top left, #fff7fd, #ffe9f7, #ffeefe);
+  border-radius: 22px;
+  padding: 14px;
+  border: 2px solid #ffd1f2;
+  box-shadow: 0 10px 22px rgba(255, 140, 190, 0.35);
+}
+.product-image {
+  height: 120px;
+  border-radius: 18px;
+  background: #ffe6f5;
+  border: 1px dashed #ffb7dd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ff8abf;
+  font-weight: bold;
+}
+.buy-btn {
+  background: #ffd1f2;
+  border: 1px solid #ff8abf;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-weight: 700;
+  color: #ff2f8a;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.buy-btn:hover {
+  transform: scale(1.05);
+}
 
-    header::after {
-      bottom: -8px;
-      right: 20px;
-    }
+/* POPUP */
+#popup {
+  position: fixed;
+  inset: 0;
+  background: rgba(255, 182, 220, 0.4);
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+.popup-box {
+  background: #fff0fa;
+  padding: 20px;
+  border-radius: 20px;
+  border: 2px solid #ff8abf;
+  text-align: center;
+  box-shadow: 0 10px 20px rgba(255, 120, 180, 0.4);
+}
+.popup-box button {
+  margin-top: 10px;
+  padding: 8px 16px;
+  background: #ffb7dd;
+  border: none;
+  border-radius: 999px;
+  font-weight: 700;
+  cursor: pointer;
+}
 
-    .brand-row {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      justify-content: space-between;
-      flex-wrap: wrap;
-    }
-
-    .brand-main {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
-
-    .kitty-badge {
-      width: 64px;
-      height: 64px;
-      border-radius: 50%;
-      background: radial-gradient(circle at 30% 30%, #fff 0, #ffe6f5 40%, #ffc6e9 100%);
-      border: 3px solid #ff8abf;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 6px 14px rgba(255, 105, 180, 0.4);
-      position: relative;
-    }
-
-    .kitty-face {
-      width: 40px;
-      height: 30px;
-      border-radius: 50% 50% 45% 45%;
-      background: #fff;
-      border: 2px solid #ff8abf;
-      position: relative;
-    }
-
-    .kitty-face::before,
-    .kitty-face::after {
-      content: "";
-      position: absolute;
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      border: 2px solid #ff8abf;
-      background: #fff;
-      top: -6px;
-    }
-
-    .kitty-face::before {
-      left: 4px;
-    }
-
-    .kitty-face::after {
-      right: 4px;
-    }
-
-    .kitty-bow {
-      position: absolute;
-      top: -4px;
-      right: -2px;
-      width: 18px;
-      height: 14px;
-      background: #ff4f9c;
-      border-radius: 50%;
-      box-shadow: 0 0 0 2px #ff8abf;
-    }
-
-    .kitty-bow::before,
-    .kitty-bow::after {
-      content: "";
-      position: absolute;
-      width: 12px;
-      height: 12px;
-      background: #ff7abf;
-      border-radius: 50%;
-      top: 1px;
-    }
-
-    .kitty-bow::before {
-      left: -8px;
-    }
-
-    .kitty-bow::after {
-      right: -8px;
-    }
-
-    .brand-text h1 {
-      font-size: 1.9rem;
-      color: #ff2f8a;
-      text-shadow: 0 2px 0 #ffe6f5;
-    }
-
-    .brand-text p {
-      font-size: 0.95rem;
-      color: #fff7fb;
-    }
-
-    .tagline {
-      font-size: 0.9rem;
-      margin-top: 4px;
-      color: #ffeef9;
-    }
-
-    .header-actions {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 10px;
-    }
-
-    .shop-now-btn {
-      background: linear-gradient(135deg, #ff7abf, #ff4f9c);
-      color: #fff;
-      border: none;
-      border-radius: 999px;
-      padding: 10px 22px;
-      font-size: 0.95rem;
-      font-weight: 700;
-      cursor: pointer;
-      box-shadow: 0 8px 18px rgba(255, 79, 156, 0.5);
-      transition: transform 0.12s ease, box-shadow 0.12s ease, filter 0.12s ease;
-    }
-
-    .shop-now-btn:hover {
-      transform: translateY(-1px) scale(1.02);
-      filter: brightness(1.05);
-      box-shadow: 0 10px 22px rgba(255, 79, 156, 0.6);
-    }
-
-    .shop-now-btn:active {
-      transform: translateY(1px) scale(0.98);
-      box-shadow: 0 5px 12px rgba(255, 79, 156, 0.4);
-    }
-
-    section {
-      margin-top: 26px;
-    }
-
-    .section-title {
-      font-size: 1.2rem;
-      color: #ff4f9c;
-      margin-bottom: 10px;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .products-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-      gap: 18px;
-    }
-
-    .product-card {
-      background: radial-gradient(circle at top left, #fff7fd 0, #ffe9f7 40%, #ffeefe 100%);
-      border-radius: 22px;
-      padding: 14px 14px 16px;
-      box-shadow: 0 10px 22px rgba(255, 140, 190, 0.35);
-      border: 2px solid #ffd1f2;
-      position: relative;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .product-image {
-      width: 100%;
-      height: 120px;
-      border-radius: 18px;
-      background: linear-gradient(135deg, #ffe6f5, #ffc6e9);
-      border: 1px dashed #ffb7dd;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.8rem;
-      color: #ff8abf;
-      margin-bottom: 6px;
-    }
-
-    .product-tag {
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: #ff7abf;
-      background: rgba(255, 255, 255, 0.7);
-      padding: 3px 8px;
-      border-radius: 999px;
-      align-self: flex-start;
-    }
-
-    .product-name {
-      font-size: 1rem;
-      color: #ff2f8a;
-    }
-
-    .product-desc {
-      font-size: 0.85rem;
-      color: #ff7abf;
-    }
-
-    .product-meta {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 4px;
-    }
-
-    .price {
-      font-weight: 700;
-      color: #ff4f9c;
-      font-size: 0.95rem;
-    }
-
-    .buy-btn {
-      background: linear-gradient(135deg, #ffd1f2, #ffb7dd);
-      border-radius: 999px;
-      border: 1px solid #ff8abf;
-      padding: 6px 14px;
-      font-size: 0.8rem;
-      color: #ff2f8a;
-      font-weight: 700;
-      cursor: pointer;
-      box-shadow: 0 5px 12px rgba(255, 140, 190, 0.4);
-      transition: transform 0.12s ease, box-shadow 0.12s ease, filter 0.12s ease;
-    }
-
-    .buy-btn:hover {
-      transform: translateY(-1px);
-      filter: brightness(1.05);
-      box-shadow: 0 7px 16px rgba(255, 140, 190, 0.5);
-    }
-
-    .videos-placeholder {
-      background: rgba(255, 255, 255, 0.7);
-      border-radius: 20px;
-      padding: 14px 14px 16px;
-      border: 2px dashed #ffd1f2;
-      color: #ff7abf;
-      font-size: 0.9rem;
-      box-shadow: 0 8px 18px rgba(255, 140, 190, 0.25);
-    }
-
-    footer {
-      margin-top: 30px;
-      padding-top: 14px;
-      border-top: 1px dashed rgba(255, 140, 190, 0.6);
-      font-size: 0.8rem;
-      color: #ff7abf;
-      display: flex;
-      justify-content: space-between;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-  </style>
+/* FOOTER */
+footer {
+  text-align: center;
+  margin: 40px 0;
+  color: #ff7abf;
+}
+</style>
 </head>
 
 <body>
-  <div class="page-wrap">
-    <header>
-      <div class="brand-row">
-        <div class="brand-main">
-          <div class="kitty-badge">
-            <div class="kitty-face"></div>
-            <div class="kitty-bow"></div>
-          </div>
-          <div class="brand-text">
-            <h1>Dollys Bracelets 𓂃 ࣪˖ ִֶָ𐀔</h1>
-            <p>cute • pastel • handmade • cutecore</p>
-            <p class="tagline">hello kitty–inspired charms for your wrists, your friends, and your inner child ♡</p>
-          </div>
-        </div>
 
-        <div class="header-actions">
-          <button class="shop-now-btn" onclick="scrollToShop()">Shop Now ♡</button>
-          <div class="mini-note">ships from a tiny pastel universe in NYC ✧</div>
-        </div>
-      </div>
-    </header>
+<!-- SPARKLES -->
+<script>
+for (let i = 0; i < 25; i++) {
+  let s = document.createElement("div");
+  s.className = "sparkle";
+  s.style.left = Math.random() * 100 + "vw";
+  s.style.top = Math.random() * 100 + "vh";
+  s.style.animationDelay = Math.random() * 3 + "s";
+  document.body.appendChild(s);
+}
+</script>
 
-    <section id="shop">
-      <h2 class="section-title"><span>🎀</span> Shop Bracelets</h2>
+<!-- NAVBAR -->
+<nav>
+  <a href="#shop">Shop</a>
+  <a href="#about">About</a>
+  <a href="#contact">Contact</a>
+</nav>
 
-      <div class="products-grid">
-        <article class="product-card">
-          <div class="product-tag">bestseller</div>
-          <div class="product-image">add your Pink Dream photo here</div>
-          <h3 class="product-name">Pink Dream Bracelet</h3>
-          <p class="product-desc">soft pink beads, tiny hearts, and a bow charm—like wearing a hello kitty daydream.</p>
-          <div class="product-meta">
-            <span class="price">$8</span>
-            <button class="buy-btn" onclick="comingSoon('Pink Dream Bracelet')">Buy ♡</button>
-          </div>
-        </article>
+<!-- HEADER -->
+<header>
+  <h1>Dollys Bracelets 𓂃 ࣪˖ ִֶָ𐀔</h1>
+  <p>cute • pastel • handmade • cutecore</p>
+  <p>hello kitty–inspired charms for your wrists ♡</p>
+</header>
 
-        <article class="product-card">
-          <div class="product-tag">sparkly</div>
-          <div class="product-image">add your Pastel Star Beads photo here</div>
-          <h3 class="product-name">Pastel Star Beads</h3>
-          <p class="product-desc">cotton-candy stars in pink, blue, and lilac—perfect for stacking with everything.</p>
-          <div class="product-meta">
-            <span class="price">$7</span>
-            <button class="buy-btn" onclick="comingSoon('Pastel Star Beads')">Buy ♡</button>
-          </div>
-        </article>
+<!-- SHOP -->
+<section id="shop">
+  <div class="products-grid">
 
-        <article class="product-card">
-          <div class="product-tag">charm mix</div>
-          <div class="product-image">add your Cutecore Charm Mix photo here</div>
-          <h3 class="product-name">Cutecore Charm Mix</h3>
-          <p class="product-desc">bows, bears, hearts, and stars—like a tiny pastel gacha pull for your wrist.</p>
-          <div class="product-meta">
-            <span class="price">$10</span>
-            <button class="buy-btn" onclick="comingSoon('Cutecore Charm Mix')">Buy ♡</button>
-          </div>
-        </article>
+    <!-- 12 BRACELETS -->
+    <div class="product-card"><div class="product-image">Pink Dream</div><h3>Pink Dream Bracelet</h3><p>$8</p><button class="buy-btn" onclick="openPopup()">Buy ♡</button></div>
 
-        <article class="product-card">
-          <div class="product-tag">limited</div>
-          <div class="product-image">add your Bubblegum Hearts photo here</div>
-          <h3 class="product-name">Bubblegum Hearts</h3>
-          <p class="product-desc">chunky hearts in bubblegum pink + baby blue, with a soft glossy finish.</p>
-          <div class="product-meta">
-            <span class="price">$9</span>
-            <button class="buy-btn" onclick="comingSoon('Bubblegum Hearts')">Buy ♡</button>
-          </div>
-        </article>
-      </div>
-    </section>
+    <div class="product-card"><div class="product-image">Star Beads</div><h3>Pastel Star Beads</h3><p>$7</p><button class="buy-btn" onclick="openPopup()">Buy ♡</button></div>
 
-    <section>
-      <h2 class="section-title"><span>✧</span> Videos</h2>
-      <div class="videos-placeholder">
-        <p><strong>Videos coming soon!</strong></p>
-        <p>This is where your YouTube shorts / bracelet tutorials / packing orders videos will live.</p>
-      </div>
-    </section>
+    <div class="product-card"><div class="product-image">Charm Mix</div><h3>Cutecore Charm Mix</h3><p>$10</p><button class="buy-btn" onclick="openPopup()">Buy ♡</button></div>
 
-    <footer>
-      <span>© 2026 Dollys Bracelets — all pastel, all cute.</span>
-      <span>made with ♡ in a hello kitty pastel universe</span>
-    </footer>
+    <div class="product-card"><div class="product-image">Bubblegum</div><h3>Bubblegum Hearts</h3><p>$9</p><button class="buy-btn" onclick="openPopup()">Buy ♡</button></div>
+
+    <div class="product-card"><div class="product-image">Cotton Candy</div><h3>Cotton Candy Swirl</h3><p>$8</p><button class="buy-btn" onclick="openPopup()">Buy ♡</button></div>
+
+    <div class="product-card"><div class="product-image">Angelcore</div><h3>Angelcore Halo Beads</h3><p>$11</p><button class="buy-btn" onclick="openPopup()">Buy ♡</button></div>
+
+    <div class="product-card"><div class="product-image">Kitty Bow</div><h3>Hello Kitty Bow Bracelet</h3><p>$12</p><button class="buy-btn" onclick="openPopup()">Buy ♡</button></div>
+
+    <div class="product-card"><div class="product-image">Cloud Puff</div><h3>Cloud Puff Pearls</h3><p>$9</p><button class="buy-btn" onclick="openPopup()">Buy ♡</button></div>
+
+    <div class="product-card"><div class="product-image">Fairy Dust</div><h3>Fairy Dust Sparkles</h3><p>$10</p><button class="buy-btn" onclick="openPopup()">Buy ♡</button></div>
+
+    <div class="product-card"><div class="product-image">Sweetheart</div><h3>Sweetheart Candy Beads</h3><p>$7</p><button class="buy-btn" onclick="openPopup()">Buy ♡</button></div>
+
+    <div class="product-card"><div class="product-image">Pastel Mix</div><h3>Pastel Rainbow Mix</h3><p>$9</p><button class="buy-btn" onclick="openPopup()">Buy ♡</button></div>
+
+    <div class="product-card"><div class="product-image">Dream Bow</div><h3>Dreamy Bow Charms</h3><p>$10</p><button class="buy-btn" onclick="openPopup()">Buy ♡</button></div>
+
   </div>
+</section>
 
-  <script>
-    function scrollToShop() {
-      document.getElementById("shop").scrollIntoView({ behavior: "smooth" });
-    }
+<!-- POPUP -->
+<div id="popup">
+  <div class="popup-box">
+    <h3>♡ Checkout Coming Soon ♡</h3>
+    <p>This is a demo popup — real checkout will be added later!</p>
+    <button onclick="closePopup()">Close</button>
+  </div>
+</div>
 
-    function comingSoon(productName) {
-      alert("♡ " + productName + " is coming soon!\nReal checkout is not live yet.");
-    }
-  </script>
+<script>
+function openPopup() {
+  document.getElementById("popup").style.display = "flex";
+}
+function closePopup() {
+  document.getElementById("popup").style.display = "none";
+}
+</script>
+
+<!-- FOOTER -->
+<footer>
+  © 2026 Dollys Bracelets — made with ♡ in a pastel universe
+</footer>
+
 </body>
 </html>
