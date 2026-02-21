@@ -1,193 +1,505 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Dollys Bracelets</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <title>Dollys Bracelets ✿ Hello Kitty Pastel Shop</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    /* ---------- Base Reset ---------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Trebuchet MS", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    }
 
-<style>
     body {
-        margin: 0;
-        font-family: 'Poppins', sans-serif;
-        background: linear-gradient(180deg, #ffe6f2, #ffeefd, #e8f0ff);
-        color: #444;
+      min-height: 100vh;
+      color: #ff6ba3;
+      /* Pink → lighter pink gradient with subtle sparkle overlay */
+      background: linear-gradient(135deg, #ffc6e9 0%, #ffe6f5 40%, #ffd6f0 70%, #ffeefe 100%);
+      position: relative;
+      overflow-x: hidden;
     }
 
+    /* Sparkle overlay */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        radial-gradient(circle at 10% 20%, rgba(255,255,255,0.7) 0, transparent 40%),
+        radial-gradient(circle at 80% 10%, rgba(255,255,255,0.6) 0, transparent 45%),
+        radial-gradient(circle at 20% 80%, rgba(255,255,255,0.5) 0, transparent 45%),
+        radial-gradient(circle at 90% 70%, rgba(255,255,255,0.4) 0, transparent 50%);
+      opacity: 0.7;
+      z-index: -1;
+    }
+
+    /* ---------- Layout ---------- */
+    .page-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 24px 16px 40px;
+    }
+
+    /* ---------- Header with Hello Kitty pattern vibe ---------- */
     header {
-        text-align: center;
-        padding: 40px 20px;
-        background: #fff;
-        border-bottom: 4px solid #ffd6ec;
-        box-shadow: 0 4px 10px rgba(255, 182, 222, 0.4);
+      background: linear-gradient(135deg, #ffb7dd, #ffd1f2);
+      border-radius: 24px;
+      padding: 18px 20px;
+      box-shadow: 0 10px 25px rgba(255, 120, 180, 0.35);
+      position: relative;
+      overflow: hidden;
     }
 
-    header h1 {
-        font-size: 40px;
-        color: #ff8ac9;
-        font-weight: 700;
-        letter-spacing: 1px;
+    /* Bow / heart pattern using pseudo-elements */
+    header::before,
+    header::after {
+      content: "♡ 🎀 ♡";
+      position: absolute;
+      font-size: 42px;
+      color: rgba(255, 255, 255, 0.7);
+      pointer-events: none;
     }
 
-    header p {
-        font-size: 18px;
-        color: #777;
+    header::before {
+      top: -10px;
+      left: 16px;
     }
 
-    .hero {
-        text-align: center;
-        padding: 50px 20px;
+    header::after {
+      bottom: -8px;
+      right: 20px;
     }
 
-    .hero h2 {
-        font-size: 32px;
-        color: #ff7fbc;
-        margin-bottom: 10px;
+    .brand-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      justify-content: space-between;
+      flex-wrap: wrap;
     }
 
-    .hero p {
-        font-size: 18px;
-        color: #666;
+    .brand-main {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
     }
 
-    .shop-btn {
-        display: inline-block;
-        margin-top: 20px;
-        padding: 14px 28px;
-        background: #ffb3dd;
-        color: white;
-        border-radius: 30px;
-        font-size: 18px;
-        box-shadow: 0 0 15px #ffb3dd;
-        transition: 0.3s;
-        text-decoration: none;
+    .kitty-badge {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, #fff 0, #ffe6f5 40%, #ffc6e9 100%);
+      border: 3px solid #ff8abf;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 14px rgba(255, 105, 180, 0.4);
+      position: relative;
     }
 
-    .shop-btn:hover {
-        background: #ff8ac9;
-        box-shadow: 0 0 20px #ff8ac9;
+    .kitty-badge::before {
+      content: "♡";
+      position: absolute;
+      top: 4px;
+      right: 8px;
+      font-size: 16px;
+      color: #ff4f9c;
+    }
+
+    .kitty-face {
+      width: 40px;
+      height: 30px;
+      border-radius: 50% 50% 45% 45%;
+      background: #fff;
+      border: 2px solid #ff8abf;
+      position: relative;
+    }
+
+    .kitty-face::before,
+    .kitty-face::after {
+      content: "";
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      border: 2px solid #ff8abf;
+      background: #fff;
+      top: -6px;
+    }
+
+    .kitty-face::before {
+      left: 4px;
+    }
+
+    .kitty-face::after {
+      right: 4px;
+    }
+
+    .kitty-bow {
+      position: absolute;
+      top: -4px;
+      right: -2px;
+      width: 18px;
+      height: 14px;
+      background: #ff4f9c;
+      border-radius: 50%;
+      box-shadow: 0 0 0 2px #ff8abf;
+    }
+
+    .kitty-bow::before,
+    .kitty-bow::after {
+      content: "";
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      background: #ff7abf;
+      border-radius: 50%;
+      top: 1px;
+    }
+
+    .kitty-bow::before {
+      left: -8px;
+    }
+
+    .kitty-bow::after {
+      right: -8px;
+    }
+
+    .brand-text h1 {
+      font-size: 1.9rem;
+      color: #ff2f8a;
+      text-shadow: 0 2px 0 #ffe6f5;
+    }
+
+    .brand-text p {
+      font-size: 0.95rem;
+      color: #fff7fb;
+    }
+
+    .tagline {
+      font-size: 0.9rem;
+      margin-top: 4px;
+      color: #ffeef9;
+    }
+
+    .header-actions {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 10px;
+    }
+
+    .shop-now-btn {
+      background: linear-gradient(135deg, #ff7abf, #ff4f9c);
+      color: #fff;
+      border: none;
+      border-radius: 999px;
+      padding: 10px 22px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 8px 18px rgba(255, 79, 156, 0.5);
+      transition: transform 0.12s ease, box-shadow 0.12s ease, filter 0.12s ease;
+    }
+
+    .shop-now-btn:hover {
+      transform: translateY(-1px) scale(1.02);
+      filter: brightness(1.05);
+      box-shadow: 0 10px 22px rgba(255, 79, 156, 0.6);
+    }
+
+    .shop-now-btn:active {
+      transform: translateY(1px) scale(0.98);
+      box-shadow: 0 5px 12px rgba(255, 79, 156, 0.4);
+    }
+
+    .mini-note {
+      font-size: 0.8rem;
+      color: #fffafc;
+    }
+
+    /* ---------- Sections ---------- */
+    section {
+      margin-top: 26px;
     }
 
     .section-title {
-        text-align: center;
-        font-size: 28px;
-        margin-top: 60px;
-        color: #ff7fbc;
-        font-weight: 600;
+      font-size: 1.2rem;
+      color: #ff4f9c;
+      margin-bottom: 10px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
     }
 
-    .products {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: 25px;
-        padding: 30px;
-        max-width: 1100px;
-        margin: auto;
+    .section-title span {
+      font-size: 1.1rem;
+    }
+
+    /* ---------- Product Grid ---------- */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 18px;
     }
 
     .product-card {
-        background: white;
-        padding: 20px;
-        border-radius: 20px;
-        text-align: center;
-        box-shadow: 0 4px 12px rgba(255, 150, 200, 0.3);
-        transition: 0.3s;
+      background: radial-gradient(circle at top left, #fff7fd 0, #ffe9f7 40%, #ffeefe 100%);
+      border-radius: 22px;
+      padding: 14px 14px 16px;
+      box-shadow: 0 10px 22px rgba(255, 140, 190, 0.35);
+      border: 2px solid #ffd1f2;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
     }
 
-    .product-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 6px 18px rgba(255, 150, 200, 0.4);
+    .product-card::before {
+      content: "★";
+      position: absolute;
+      top: 8px;
+      right: 12px;
+      font-size: 18px;
+      color: rgba(255, 140, 190, 0.5);
     }
 
-    .product-card img {
-        width: 100%;
-        border-radius: 15px;
-        margin-bottom: 10px;
+    .product-tag {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #ff7abf;
+      background: rgba(255, 255, 255, 0.7);
+      padding: 3px 8px;
+      border-radius: 999px;
+      align-self: flex-start;
     }
 
-    .product-card h3 {
-        font-size: 20px;
-        color: #ff7fbc;
-        margin-bottom: 5px;
+    .product-name {
+      font-size: 1rem;
+      color: #ff2f8a;
     }
 
-    .product-card p {
-        font-size: 16px;
-        color: #666;
+    .product-desc {
+      font-size: 0.85rem;
+      color: #ff7abf;
     }
 
-    .coming-soon {
-        text-align: center;
-        padding: 50px 20px;
-        margin-top: 40px;
-        background: #fff0fa;
-        border-top: 4px solid #ffc7e6;
+    .product-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 4px;
     }
 
-    .coming-soon h2 {
-        font-size: 28px;
-        color: #ff7fbc;
+    .price {
+      font-weight: 700;
+      color: #ff4f9c;
+      font-size: 0.95rem;
     }
 
+    .buy-btn {
+      background: linear-gradient(135deg, #ffd1f2, #ffb7dd);
+      border-radius: 999px;
+      border: 1px solid #ff8abf;
+      padding: 6px 14px;
+      font-size: 0.8rem;
+      color: #ff2f8a;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 5px 12px rgba(255, 140, 190, 0.4);
+      transition: transform 0.12s ease, box-shadow 0.12s ease, filter 0.12s ease;
+    }
+
+    .buy-btn:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.05);
+      box-shadow: 0 7px 16px rgba(255, 140, 190, 0.5);
+    }
+
+    .buy-btn:active {
+      transform: translateY(1px);
+      box-shadow: 0 3px 8px rgba(255, 140, 190, 0.35);
+    }
+
+    /* Placeholder image area (for when you add real photos) */
+    .product-image {
+      width: 100%;
+      height: 120px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, #ffe6f5, #ffc6e9);
+      border: 1px dashed #ffb7dd;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      color: #ff8abf;
+      margin-bottom: 6px;
+    }
+
+    /* ---------- Videos Section ---------- */
+    .videos-placeholder {
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: 20px;
+      padding: 14px 14px 16px;
+      border: 2px dashed #ffd1f2;
+      color: #ff7abf;
+      font-size: 0.9rem;
+      box-shadow: 0 8px 18px rgba(255, 140, 190, 0.25);
+    }
+
+    .videos-placeholder strong {
+      color: #ff4f9c;
+    }
+
+    /* ---------- Footer ---------- */
     footer {
-        text-align: center;
-        padding: 20px;
-        margin-top: 40px;
-        background: #fff;
-        border-top: 4px solid #ffd6ec;
-        color: #777;
+      margin-top: 30px;
+      padding-top: 14px;
+      border-top: 1px dashed rgba(255, 140, 190, 0.6);
+      font-size: 0.8rem;
+      color: #ff7abf;
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
     }
-</style>
+
+    footer span {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 640px) {
+      .brand-row {
+        align-items: flex-start;
+      }
+      .header-actions {
+        align-items: flex-start;
+      }
+      .brand-text h1 {
+        font-size: 1.6rem;
+      }
+    }
+  </style>
 </head>
-
 <body>
+  <div class="page-wrap">
+    <!-- Header -->
+    <header>
+      <div class="brand-row">
+        <div class="brand-main">
+          <div class="kitty-badge">
+            <div class="kitty-face"></div>
+            <div class="kitty-bow"></div>
+          </div>
+          <div class="brand-text">
+            <h1>Dollys Bracelets 𓂃 ࣪˖ ִֶָ𐀔</h1>
+            <p>cute • pastel • handmade • cutecore</p>
+            <p class="tagline">hello kitty–inspired charms for your wrists, your friends, and your inner child ♡</p>
+          </div>
+        </div>
+        <div class="header-actions">
+          <button class="shop-now-btn" onclick="scrollToShop()">Shop Now ♡</button>
+          <div class="mini-note">ships from a tiny pastel universe in NYC ✧</div>
+        </div>
+      </div>
+    </header>
 
-<header>
-    <h1>Dollys Bracelets</h1>
-    <p>Cute • Pastel • Handmade • Cutecore</p>
-</header>
+    <!-- Shop Section -->
+    <section id="shop">
+      <h2 class="section-title"><span>🎀</span> Shop Bracelets</h2>
+      <div class="products-grid">
+        <!-- Product 1 -->
+        <article class="product-card">
+          <div class="product-tag">bestseller</div>
+          <div class="product-image">add your Pink Dream photo here</div>
+          <h3 class="product-name">Pink Dream Bracelet</h3>
+          <p class="product-desc">soft pink beads, tiny hearts, and a bow charm—like wearing a hello kitty daydream.</p>
+          <div class="product-meta">
+            <span class="price">$8</span>
+            <button class="buy-btn" onclick="comingSoon('Pink Dream Bracelet')">Buy ♡</button>
+          </div>
+        </article>
 
-<section class="hero">
-    <h2>Cutecore Bracelet Collection</h2>
-    <p>Adorable pastel bracelets made to match your aesthetic.</p>
-    <a class="shop-btn">Shop Now</a>
-</section>
+        <!-- Product 2 -->
+        <article class="product-card">
+          <div class="product-tag">sparkly</div>
+          <div class="product-image">add your Pastel Star Beads photo here</div>
+          <h3 class="product-name">Pastel Star Beads</h3>
+          <p class="product-desc">cotton-candy stars in pink, blue, and lilac—perfect for stacking with everything.</p>
+          <div class="product-meta">
+            <span class="price">$7</span>
+            <button class="buy-btn" onclick="comingSoon('Pastel Star Beads')">Buy ♡</button>
+          </div>
+        </article>
 
-<h2 class="section-title">Top Sellers</h2>
+        <!-- Product 3 -->
+        <article class="product-card">
+          <div class="product-tag">charm mix</div>
+          <div class="product-image">add your Cutecore Charm Mix photo here</div>
+          <h3 class="product-name">Cutecore Charm Mix</h3>
+          <p class="product-desc">bows, bears, hearts, and stars—like a tiny pastel gacha pull for your wrist.</p>
+          <div class="product-meta">
+            <span class="price">$10</span>
+            <button class="buy-btn" onclick="comingSoon('Cutecore Charm Mix')">Buy ♡</button>
+          </div>
+        </article>
 
-<div class="products">
-    <div class="product-card">
-        <img src="https://i.imgur.com/8bKQF0L.jpeg" alt="Bracelet">
-        <h3>Pink Dream Bracelet</h3>
-        <p>$8.00</p>
-    </div>
+        <!-- Product 4 -->
+        <article class="product-card">
+          <div class="product-tag">limited</div>
+          <div class="product-image">add your Bubblegum Hearts photo here</div>
+          <h3 class="product-name">Bubblegum Hearts</h3>
+          <p class="product-desc">chunky hearts in bubblegum pink + baby blue, with a soft glossy finish.</p>
+          <div class="product-meta">
+            <span class="price">$9</span>
+            <button class="buy-btn" onclick="comingSoon('Bubblegum Hearts')">Buy ♡</button>
+          </div>
+        </article>
+      </div>
+    </section>
 
-    <div class="product-card">
-        <img src="https://i.imgur.com/2yJ7m0Z.jpeg" alt="Bracelet">
-        <h3>Pastel Star Beads</h3>
-        <p>$7.00</p>
-    </div>
+    <!-- Videos Section -->
+    <section>
+      <h2 class="section-title"><span>✧</span> Videos</h2>
+      <div class="videos-placeholder">
+        <p><strong>Videos coming soon!</strong></p>
+        <p>
+          This is where your YouTube shorts / bracelet tutorials / packing orders videos will live.
+          When you’re ready, we can embed your channel:
+          <br />
+          <code>@DollysBracelets_OFFICIAL</code>
+        </p>
+      </div>
+    </section>
 
-    <div class="product-card">
-        <img src="https://i.imgur.com/3Q5xg1F.jpeg" alt="Bracelet">
-        <h3>Cutecore Charm Mix</h3>
-        <p>$10.00</p>
-    </div>
+    <!-- Footer -->
+    <footer>
+      <span>© 2026 Dollys Bracelets — all pastel, all cute.</span>
+      <span>made with ♡ in a hello kitty pastel universe</span>
+    </footer>
+  </div>
 
-    <div class="product-card">
-        <img src="https://i.imgur.com/4Z8tq0M.jpeg" alt="Bracelet">
-        <h3>Bubblegum Hearts</h3>
-        <p>$9.00</p>
-    </div>
-</div>
+  <script>
+    function scrollToShop() {
+      const shop = document.getElementById("shop");
+      if (shop) {
+        shop.scrollIntoView({ behavior: "smooth" });
+      }
+    }
 
-<section class="coming-soon">
-    <h2>Videos Coming Soon!</h2>
-    <p>Your bracelet tutorials and showcases will appear here.</p>
-</section>
-
-<footer>
-    © 2026 Dollys Bracelets — All pastel, all cute.
-</footer>
-
+    function comingSoon(productName) {
+      alert("♡ " + productName + " is coming soon!\nReal checkout is not live yet, but the cuteness is.");
+    }
+  </script>
 </body>
 </html>
