@@ -2,121 +2,242 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<title>Dollys Bracelets ✿ Pastel Sanrio Shop</title>
+<title>Dollys Bracelets ✿ Pastel Shop</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 <style>
-body {
-  background: linear-gradient(135deg, #ffd6ec, #e3f0ff, #e8ffe9, #fff7d6, #ffe6f5);
-  background-size: 400% 400%;
-  animation: rainbow 12s ease infinite;
-  font-family: "Trebuchet MS", sans-serif;
-  margin: 0;
-  padding: 0;
-  text-align: center;
+/* RESET */
+*{margin:0;padding:0;box-sizing:border-box;font-family:"Trebuchet MS",sans-serif;}
+
+/* BACKGROUND */
+body{
+  background:linear-gradient(135deg,#ffd6ec,#e3f0ff,#e8ffe9,#fff7d6,#ffe6f5);
+  background-size:400% 400%;
+  animation:rainbow 12s ease infinite;
+  text-align:center;
+  padding-bottom:50px;
 }
-@keyframes rainbow {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+@keyframes rainbow{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
 }
 
-header {
-  padding: 30px 10px;
+/* HEADER */
+header{
+  padding:40px 10px;
+}
+h1{
+  font-size:2.8rem;
+  color:#ff2f8a;
+  text-shadow:0 2px 0 #ffe6f5;
+}
+.sub{
+  margin-top:5px;
+  color:#ff7abf;
+  font-size:1.1rem;
 }
 
-h1 {
-  color: #ff2f8a;
-  font-size: 2.2rem;
-  text-shadow: 0 2px 0 #ffe6f5;
+/* NAV */
+nav{
+  margin:20px auto;
+  display:flex;
+  justify-content:center;
+  gap:15px;
+}
+nav a{
+  text-decoration:none;
+  background:#ff7abf;
+  color:white;
+  padding:8px 18px;
+  border-radius:999px;
+  font-weight:bold;
+  font-size:0.9rem;
 }
 
-.top-selling {
-  max-width: 900px;
-  margin: 20px auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
+/* SECTION TITLES */
+.section-title{
+  margin:40px 0 15px;
+  font-size:1.8rem;
+  color:#ff2f8a;
 }
 
-.card {
-  background: white;
-  border-radius: 20px;
-  padding: 15px;
-  border: 2px solid #ffd1f2;
-  box-shadow: 0 5px 15px rgba(255, 120, 180, 0.3);
+/* GRID SECTIONS */
+.grid{
+  max-width:1000px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:18px;
+}
+.card{
+  background:white;
+  border-radius:20px;
+  padding:15px;
+  border:2px solid #ffd1f2;
+  box-shadow:0 5px 15px rgba(255,120,180,0.3);
+}
+.card h3{color:#ff2f8a;margin-bottom:5px;}
+.card p{color:#ff7abf;}
+
+/* ABOUT + CONTACT BOXES */
+.box{
+  max-width:800px;
+  margin:20px auto;
+  background:white;
+  border-radius:20px;
+  padding:20px;
+  border:2px solid #ffd1f2;
+  box-shadow:0 5px 15px rgba(255,120,180,0.3);
+  color:#ff2f8a;
 }
 
-.shop-btn {
-  display: inline-block;
-  margin-top: 20px;
-  background: #ff7abf;
-  color: white;
-  padding: 12px 25px;
-  border-radius: 999px;
-  font-weight: bold;
-  text-decoration: none;
-  font-size: 1.1rem;
+/* YOUTUBE BUTTON */
+.yt-btn{
+  display:inline-block;
+  margin-top:10px;
+  background:#ff6ba3;
+  color:white;
+  padding:10px 20px;
+  border-radius:999px;
+  font-weight:bold;
+  text-decoration:none;
 }
 
-.yt-btn {
-  display: inline-block;
-  margin-top: 10px;
-  background: #ff6ba3;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 999px;
-  font-weight: bold;
-  text-decoration: none;
+/* SANRIO CHARACTERS */
+.character{
+  position:fixed;
+  z-index:5;
+  opacity:0.9;
+}
+.big{width:120px;}
+.small{width:70px;}
+
+/* FLOATING BOWS */
+.bow{
+  position:fixed;
+  width:40px;
+  height:24px;
+  border-radius:999px;
+  background:#ff6ba3;
+  opacity:0.7;
+  animation:float 8s ease-in-out infinite;
+}
+.bow::before,.bow::after{
+  content:"";
+  position:absolute;
+  width:24px;
+  height:24px;
+  border-radius:50%;
+  background:#ff8abf;
+  top:0;
+}
+.bow::before{left:-15px;}
+.bow::after{right:-15px;}
+@keyframes float{
+  0%{transform:translateY(0);}
+  50%{transform:translateY(-30px);}
+  100%{transform:translateY(0);}
 }
 
-.character {
-  position: fixed;
-  z-index: 10;
-  opacity: 0.9;
+/* SPARKLE CURSOR */
+.spark{
+  position:fixed;
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  background:radial-gradient(circle,#fff,#ffb7dd);
+  pointer-events:none;
+  opacity:0.9;
+  transform:translate(-50%,-50%);
+  animation:fade 0.6s linear forwards;
 }
-.big { width: 120px; }
-.small { width: 70px; }
+@keyframes fade{
+  to{opacity:0;transform:translate(-50%,-50%) scale(0.3);}
+}
 </style>
 </head>
 
 <body>
 
-<!-- SANRIO CHARACTERS (SAFE PNGS) -->
-<img src="https://pngimg.com/uploads/hello_kitty/hello_kitty_PNG64.png" class="character big" style="top:10px; left:10px;">
-<img src="https://pngimg.com/uploads/kuromi/kuromi_PNG19.png" class="character small" style="top:20px; right:20px;">
-<img src="https://pngimg.com/uploads/cinnamoroll/cinnamoroll_PNG17.png" class="character big" style="bottom:10px; left:20px;">
-<img src="https://pngimg.com/uploads/my_melody/my_melody_PNG35.png" class="character small" style="bottom:20px; right:20px;">
+<!-- SANRIO CHARACTERS -->
+<img src="https://pngimg.com/uploads/hello_kitty/hello_kitty_PNG64.png" class="character big" style="top:10px;left:10px;">
+<img src="https://pngimg.com/uploads/kuromi/kuromi_PNG19.png" class="character small" style="top:20px;right:20px;">
+<img src="https://pngimg.com/uploads/cinnamoroll/cinnamoroll_PNG17.png" class="character big" style="bottom:10px;left:20px;">
+<img src="https://pngimg.com/uploads/my_melody/my_melody_PNG35.png" class="character small" style="bottom:20px;right:20px;">
+
+<!-- FLOATING BOWS -->
+<div class="bow" style="top:30%;left:5%;animation-delay:0s;"></div>
+<div class="bow" style="top:70%;right:5%;animation-delay:2s;"></div>
 
 <header>
   <h1>Dollys Bracelets ✿</h1>
-  <p>cute • pastel • handmade • sanrio‑coded</p>
-
-  <a class="yt-btn" href="https://www.youtube.com/@DollysBracelets_OFFICIAL" target="_blank">
-    Visit My YouTube ♡
-  </a>
+  <p class="sub">cute • pastel • handmade • sanrio‑coded</p>
+  <a class="yt-btn" href="https://www.youtube.com/@DollysBracelets_OFFICIAL" target="_blank">Visit My YouTube ♡</a>
 </header>
 
-<h2>Top Selling Bracelets ✿</h2>
+<nav>
+  <a href="#bracelets">Bracelets</a>
+  <a href="#necklaces">Necklaces</a>
+  <a href="#earrings">Earrings</a>
+  <a href="#love">Love</a>
+  <a href="#about">About</a>
+  <a href="#contact">Contact</a>
+</nav>
 
-<div class="top-selling">
-  <div class="card">
-    <h3>Cotton Candy Clouds</h3>
-    <p>$8</p>
-  </div>
-
-  <div class="card">
-    <h3>Kuromi Chaos</h3>
-    <p>$10</p>
-  </div>
-
-  <div class="card">
-    <h3>Cinnamoroll Sky Beads</h3>
-    <p>$9</p>
-  </div>
+<!-- BRACELETS -->
+<h2 class="section-title" id="bracelets">Bracelets ✿</h2>
+<div class="grid">
+  <div class="card"><h3>Cotton Candy Clouds</h3><p>$8</p></div>
+  <div class="card"><h3>Kuromi Chaos</h3><p>$10</p></div>
+  <div class="card"><h3>Cinnamoroll Sky</h3><p>$9</p></div>
+  <div class="card"><h3>Pastel Galaxy</h3><p>$11</p></div>
 </div>
 
-<a class="shop-btn" href="shop.html">Shop Here ♡</a>
+<!-- NECKLACES -->
+<h2 class="section-title" id="necklaces">Necklaces ✿</h2>
+<div class="grid">
+  <div class="card"><h3>Heart Locket</h3><p>$12</p></div>
+  <div class="card"><h3>Angelcore Wings</h3><p>$14</p></div>
+</div>
+
+<!-- EARRINGS -->
+<h2 class="section-title" id="earrings">Earrings ✿</h2>
+<div class="grid">
+  <div class="card"><h3>Star Drops</h3><p>$7</p></div>
+  <div class="card"><h3>Pink Bows</h3><p>$8</p></div>
+</div>
+
+<!-- LOVE SECTION -->
+<h2 class="section-title" id="love">Love ✿</h2>
+<div class="grid">
+  <div class="card"><h3>Sweetheart Set</h3><p>$15</p></div>
+  <div class="card"><h3>Valentine Mix</h3><p>$13</p></div>
+</div>
+
+<!-- ABOUT -->
+<div class="box" id="about">
+  <h2>About Me ✿</h2>
+  <p>Hi! I'm Ayana and I make cute pastel bracelets inspired by Sanrio, clouds, hearts, and everything soft and magical.</p>
+</div>
+
+<!-- CONTACT -->
+<div class="box" id="contact">
+  <h2>Contact ✿</h2>
+  <p>Email, Instagram, TikTok — add your info here when you're ready to take real orders!</p>
+</div>
+
+<script>
+/* SPARKLE CURSOR */
+document.addEventListener("mousemove", (e)=>{
+  const s=document.createElement("div");
+  s.className="spark";
+  s.style.left=e.clientX+"px";
+  s.style.top=e.clientY+"px";
+  document.body.appendChild(s);
+  setTimeout(()=>s.remove(),600);
+});
+</script>
 
 </body>
 </html>
